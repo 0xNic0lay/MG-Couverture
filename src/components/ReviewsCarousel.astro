@@ -146,7 +146,7 @@ const totalReviews = reviews.length;
     <div class="flex justify-center gap-2 mt-6" role="tablist" aria-label="Navigation des avis">
       {reviews.map((_, i) => (
         <button
-          class={`carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C8102E] ${i === 0 ? 'bg-[#C8102E] w-6' : 'bg-gray-300'}`}
+          class={`carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C8102E] p-3 box-content ${i === 0 ? 'bg-[#C8102E] w-6' : 'bg-gray-300'}`}
           data-index={i}
           aria-label={`Aller à l'avis ${i + 1}`}
           role="tab"
