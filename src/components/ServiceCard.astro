@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href?: string;
+}
+
+const { title, description, icon, href = '/services' } = Astro.props;
+---
+
+<article class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
+  <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mb-4 shrink-0" aria-hidden="true">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="text-lg font-semibold text-[#3D3D3D] mb-2">{title}</h3>
+  <p class="text-[#5a5a5a] text-sm leading-relaxed flex-grow">{description}</p>
+  <a href={href} class="mt-4 text-[#C8102E] font-medium text-sm hover:underline inline-flex items-center gap-1">
+    En savoir plus
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </a>
+</article>

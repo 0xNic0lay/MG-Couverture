@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C8102E;
+  --color-primary-dark: #a00d24;
+  --color-primary-light: #e8405a;
+  --color-charcoal: #3D3D3D;
+  --color-charcoal-light: #5a5a5a;
+  --color-cream: #fdf9f9;
+
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #3D3D3D;
+}
+
+.btn-primary {
+  @apply inline-block bg-[#C8102E] hover:bg-[#a00d24] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 cursor-pointer;
+}
+
+.btn-secondary {
+  @apply inline-block border-2 border-white text-white hover:bg-white hover:text-[#C8102E] font-semibold px-6 py-3 rounded-lg transition-colors duration-200 cursor-pointer;
+}
+
+.btn-outline {
+  @apply inline-block border-2 border-[#C8102E] text-[#C8102E] hover:bg-[#C8102E] hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 cursor-pointer;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-[#3D3D3D] mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-[#5a5a5a] mb-8;
+}
+
+.page-header {
+  @apply bg-[#3D3D3D] text-white py-16 px-4;
+}

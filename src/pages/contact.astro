@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const prestationOptions = [
+  'Pose de toiture neuve',
+  'Rénovation de toiture',
+  'Zinguerie (gouttières, faîtières...)',
+  'Isolation de toiture',
+  'Pose de Velux / fenêtre de toit',
+  'Nettoyage et traitement',
+  'Dépannage / urgence',
+  'Autre',
+];
+---
+
+<BaseLayout
+  title="Contact & Devis Gratuit — Couvreur Orléans | MG Couverture"
+  description="Contactez MG Couverture pour votre devis gratuit de toiture à Orléans. Artisan couvreur disponible du lundi au vendredi, interventions possibles le samedi. Réponse sous 24h."
+>
+  <Header />
+  <main>
+    <!-- En-tête de page -->
+    <div class="page-header">
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm text-gray-400 mb-4" aria-label="Fil d'Ariane">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+            <li aria-hidden="true">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </li>
+            <li class="text-white font-medium" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl font-bold text-white mb-4">Contactez-nous</h1>
+        <p class="text-gray-300 text-lg max-w-2xl">
+          Devis gratuit et sans engagement. Réponse garantie sous 24h ouvrées.
+        </p>
+      </div>
+    </div>
+
+    <!-- Corps de la page -->
+    <section class="py-16 px-4 bg-[#fdf9f9]">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10">
+
+          <!-- Colonne gauche : informations -->
+          <div>
+            <h2 class="text-2xl font-bold text-[#3D3D3D] mb-6">Nos coordonnées</h2>
+
+            <ul class="space-y-5 mb-8">
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#3D3D3D]">Téléphone</p>
+                  <a href="tel:0670635484" class="text-[#C8102E] hover:underline font-medium">06.70.63.54.84</a>
+                  <p class="text-sm text-[#5a5a5a] mt-0.5">Disponible du lundi au vendredi, interventions possibles le samedi</p>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#3D3D3D]">Email</p>
+                  <a href="mailto:mgcouverture45@gmail.com" class="text-[#C8102E] hover:underline font-medium">mgcouverture45@gmail.com</a>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#3D3D3D]">Zone d'intervention</p>
+                  <p class="text-[#5a5a5a]">Gidy (45520) et agglomération orléanaise</p>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                  <svg class="w-5 h-5 text-[#C8102E]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#3D3D3D]">Facebook</p>
+                  <a
+                    href="https://www.facebook.com/p/MG-Couverture-100076450502585/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#C8102E] hover:underline font-medium"
+                  >
+                    MG Couverture sur Facebook
+                  </a>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Horaires -->
+            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+              <h3 class="font-semibold text-[#3D3D3D] mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Disponibilités
+              </h3>
+              <dl class="space-y-1 text-sm">
+                <div class="flex justify-between">
+                  <dt class="text-[#5a5a5a]">Lundi — Vendredi</dt>
+                  <dd class="font-medium text-[#3D3D3D]">8h — 18h</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="text-[#5a5a5a]">Samedi</dt>
+                  <dd class="font-medium text-[#3D3D3D]">Sur rendez-vous</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="text-[#5a5a5a]">Urgences</dt>
+                  <dd class="font-semibold text-[#C8102E]">Joignable rapidement</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Colonne droite : formulaire -->
+          <div>
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+              <h2 class="text-2xl font-bold text-[#3D3D3D] mb-6">Envoyer une demande</h2>
+
+              <form
+                name="contact"
+                method="POST"
+                action="/contact-success"
+                class="space-y-5"
+                novalidate
+              >
+                <div>
+                  <label for="nom" class="block text-sm font-medium text-[#3D3D3D] mb-1.5">
+                    Nom complet <span class="text-red-500" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    required
+                    autocomplete="name"
+                    placeholder="Jean Dupont"
+                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-[#3D3D3D] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:border-transparent transition-shadow"
+                  />
+                </div>
+
+                <div>
+                  <label for="telephone" class="block text-sm font-medium text-[#3D3D3D] mb-1.5">
+                    Téléphone <span class="text-red-500" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    required
+                    autocomplete="tel"
+                    placeholder="06 XX XX XX XX"
+                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-[#3D3D3D] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:border-transparent transition-shadow"
+                  />
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium text-[#3D3D3D] mb-1.5">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="jean.dupont@email.fr"
+                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-[#3D3D3D] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:border-transparent transition-shadow"
+                  />
+                </div>
+
+                <div>
+                  <label for="prestation" class="block text-sm font-medium text-[#3D3D3D] mb-1.5">
+                    Type de prestation
+                  </label>
+                  <select
+                    id="prestation"
+                    name="prestation"
+                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-[#3D3D3D] bg-white focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:border-transparent transition-shadow"
+                  >
+                    <option value="">— Sélectionnez une prestation —</option>
+                    {prestationOptions.map(p => (
+                      <option value={p}>{p}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label for="message" class="block text-sm font-medium text-[#3D3D3D] mb-1.5">
+                    Message <span class="text-red-500" aria-hidden="true">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    placeholder="Décrivez votre projet ou votre problème (type de toiture, surface approximative, urgence ou non...)"
+                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-[#3D3D3D] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C8102E] focus:border-transparent transition-shadow resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full btn-primary py-3.5 text-base"
+                >
+                  Envoyer ma demande
+                </button>
+              </form>
+
+              <p class="text-xs text-gray-400 mt-4 text-center">
+                ✓ Réponse sous 24h garantie &nbsp;·&nbsp; Devis gratuit et sans engagement
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

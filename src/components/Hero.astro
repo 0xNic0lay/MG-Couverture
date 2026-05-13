@@ -1,0 +1,49 @@
+---
+import { asset } from '../utils/asset';
+---
+
+<section class="relative min-h-[85vh] flex items-center overflow-hidden" aria-label="Section principale">
+  <div class="absolute inset-0 z-0">
+    <video
+      autoplay
+      muted
+      playsinline
+      preload="none"
+      poster={asset('/images/services/pose-toiture-neuve.jpg')}
+      class="w-full h-full object-cover"
+      aria-hidden="true"
+    >
+      <source src={asset('/videos/hero.mp4')} type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/88 to-[#1a1a1a]/50"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="max-w-2xl">
+      <span class="inline-block bg-[#C8102E] text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        Artisan couvreur certifié — Garantie décennale
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+        Votre toiture<br/>
+        <span class="text-[#e8405a]">entre de bonnes mains</span>
+      </h1>
+      <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+        Couvreur artisan à <strong class="text-white">Orléans et agglomération</strong> — pose, rénovation, zinguerie et dépannage d'urgence. Devis gratuit sous 24h.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn-primary text-center text-lg px-8 py-4">
+          Demander un devis gratuit
+        </a>
+        <a href="/realisations" class="btn-secondary text-center text-lg px-8 py-4">
+          Nos réalisations
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce" aria-hidden="true">
+    <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>

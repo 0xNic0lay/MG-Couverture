@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { asset } from '../utils/asset';
+
+const engagements = [
+  {
+    title: 'Devis gratuit et sans engagement',
+    desc: "Je me déplace pour évaluer votre chantier et vous remettre un devis détaillé, sans frais et sans obligation.",
+    icon: `<svg class="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`,
+  },
+  {
+    title: 'Intervention rapide',
+    desc: "Je comprends qu'une toiture défaillante ne peut pas attendre. Je m'engage à intervenir dans les meilleurs délais, urgences incluses.",
+    icon: `<svg class="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  },
+  {
+    title: 'Artisan local de confiance',
+    desc: "Né et installé dans la région orléanaise, je connais les maisons, les architectures locales et les contraintes climatiques du territoire.",
+    icon: `<svg class="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  },
+  {
+    title: 'Travail soigné, garantie décennale',
+    desc: "Je ne suis pas là pour expédier les chantiers. Chaque intervention est réalisée avec soin, dans les règles de l'art, et couverte par la garantie décennale.",
+    icon: `<svg class="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+  },
+  {
+    title: 'Disponible et réactif',
+    desc: "Je réponds à mes clients directement, sans intermédiaire. Un appel, un message — je vous rappelle rapidement pour discuter de votre projet.",
+    icon: `<svg class="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>`,
+  },
+];
+
+const zones = [
+  'Gidy', 'Orléans', 'Olivet', 'Saint-Jean-de-la-Ruelle', 'Fleury-les-Aubrais',
+  'Saran', 'Saint-Cyr-en-Val', 'La Chapelle-Saint-Mesmin', 'Ingré',
+  'Boigny-sur-Bionne', 'Chécy', 'Saint-Jean-le-Blanc', 'Mézières-lez-Cléry',
+];
+---
+
+<BaseLayout
+  title="À propos — Mickaël Grenêche, Artisan Couvreur Orléans | MG Couverture"
+  description="Découvrez Mickaël Grenêche, artisan couvreur basé à Gidy (45520), avec plus de 15 ans d'expérience. Intervention sur Orléans et toute l'agglomération orléanaise. Garantie décennale."
+>
+  <Header />
+  <main>
+    <!-- En-tête de page -->
+    <div class="page-header">
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm text-gray-400 mb-4" aria-label="Fil d'Ariane">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+            <li aria-hidden="true">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </li>
+            <li class="text-white font-medium" aria-current="page">À propos</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl font-bold text-white mb-4">À propos de MG Couverture</h1>
+        <p class="text-gray-300 text-lg max-w-2xl">
+          Artisan couvreur basé à Gidy (45520), au service des propriétaires de l'agglomération orléanaise depuis plus de 15 ans.
+        </p>
+      </div>
+    </div>
+
+    <!-- Présentation -->
+    <section class="py-20 px-4 bg-white" aria-labelledby="about-intro-title">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <img
+              src={asset('/images/mickael.jpg')}
+              alt="Mickaël Grenêche, artisan couvreur MG Couverture à Orléans"
+              class="rounded-2xl w-full object-cover shadow-lg"
+              loading="eager"
+              width="500"
+              height="650"
+            />
+          </div>
+          <div>
+            <span class="text-[#C8102E] font-semibold text-sm uppercase tracking-wide">Mon parcours</span>
+            <h2 id="about-intro-title" class="text-3xl font-bold text-[#3D3D3D] mt-2 mb-6">
+              Mickaël Grenêche, artisan couvreur à Gidy — Orléans et agglomération
+            </h2>
+
+            <p class="text-[#5a5a5a] leading-relaxed mb-4">
+              J'ai commencé à travailler sur les toits très jeune, en apprentissage dans la région orléanaise. Ce qui devait être un point de départ est devenu une vocation. Depuis plus de 15 ans, basé à Gidy, je perfectionne mon art chantier après chantier, maison après maison.
+            </p>
+            <p class="text-[#5a5a5a] leading-relaxed mb-4">
+              En fondant MG Couverture en tant qu'artisan indépendant, mon objectif était simple : offrir la qualité d'un grand professionnel avec le soin et la disponibilité d'un artisan de proximité. Pas de sous-traitant, pas d'intermédiaire — c'est moi qui évalue votre chantier, c'est moi qui interviens.
+            </p>
+            <p class="text-[#5a5a5a] leading-relaxed mb-6">
+              J'interviens sur tous types de couvertures : tuiles, ardoise, zinc, bac acier. Des petites réparations aux rénovations complètes, des dépannages d'urgence aux poses de toiture neuve — chaque chantier reçoit la même attention et le même niveau d'exigence.
+            </p>
+
+            <div class="bg-[#fdf9f9] border border-red-100 rounded-xl p-5">
+              <p class="text-[#3D3D3D] font-medium italic text-sm">
+                "Mon travail, c'est de protéger votre maison. Une toiture bien faite, c'est la tranquillité d'esprit pour les 20 prochaines années."
+              </p>
+              <p class="text-[#C8102E] font-semibold text-sm mt-2">— Mickaël Grenêche</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagements -->
+    <section class="py-20 px-4 bg-[#fdf9f9]" aria-labelledby="engagements-title">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="engagements-title" class="section-title">Mes engagements</h2>
+          <p class="section-subtitle max-w-xl mx-auto">
+            Ce ne sont pas que des promesses — ce sont les principes qui guident chacune de mes interventions.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {engagements.map(e => (
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div class="w-11 h-11 bg-red-50 rounded-lg flex items-center justify-center mb-4" aria-hidden="true">
+                <Fragment set:html={e.icon} />
+              </div>
+              <h3 class="font-semibold text-[#3D3D3D] mb-2">{e.title}</h3>
+              <p class="text-[#5a5a5a] text-sm leading-relaxed">{e.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Zone d'intervention -->
+    <section class="py-20 px-4 bg-white" aria-labelledby="zone-title">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 id="zone-title" class="section-title">Zone d'intervention</h2>
+          <p class="section-subtitle max-w-2xl mx-auto">
+            Basé à Gidy (45520), j'interviens dans toute l'agglomération orléanaise et les communes du Loiret (45) à proximité.
+          </p>
+        </div>
+
+        <div class="bg-[#fdf9f9] border border-red-100 rounded-2xl p-8">
+          <p class="text-[#5a5a5a] leading-relaxed mb-6">
+            Basé à Gidy, à quelques minutes d'Orléans, MG Couverture couvre l'ensemble de l'agglomération orléanaise : de Fleury-les-Aubrais au nord à Saint-Cyr-en-Val au sud, d'Ingré à l'ouest à Chécy à l'est. Je me déplace également dans les communes rurales du Loiret à proximité — n'hésitez pas à me contacter pour confirmer ma disponibilité dans votre secteur.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {zones.map(z => (
+              <span class="bg-white border border-red-200 text-[#C8102E] text-sm font-medium px-3 py-1.5 rounded-full">
+                {z}
+              </span>
+            ))}
+            <span class="bg-white border border-gray-200 text-[#5a5a5a] text-sm font-medium px-3 py-1.5 rounded-full">
+              Et environs...
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="/contact" class="btn-primary">
+            Vérifier mon secteur & demander un devis
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+  <Footer />
+</BaseLayout>

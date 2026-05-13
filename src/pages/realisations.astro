@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import RealisationCard from '../components/RealisationCard.astro';
+import Lightbox from '../components/Lightbox.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { asset } from '../utils/asset';
+
+const realisations = [
+  {
+    id: 'chantier-1',
+    title: "Réfection toiture ardoise — Orléans",
+    type: "Rénovation complète",
+    material: "Ardoise naturelle",
+    photos: [
+      '/images/realisations/chantier-1/01.jpg',
+      '/images/realisations/chantier-1/02.jpg',
+      '/images/realisations/chantier-1/03.jpg',
+    ],
+  },
+  {
+    id: 'chantier-2',
+    title: "Pose toiture tuiles neuves — Olivet",
+    type: "Toiture neuve",
+    material: "Tuiles terre cuite",
+    photos: [
+      '/images/realisations/chantier-2/01.jpg',
+      '/images/realisations/chantier-2/02.jpg',
+      '/images/realisations/chantier-2/03.jpg',
+    ],
+  },
+  {
+    id: 'chantier-3',
+    title: "Remplacement gouttières — Fleury-les-Aubrais",
+    type: "Zinguerie",
+    material: "Zinc",
+    photos: [
+      '/images/realisations/chantier-3/01.jpg',
+      '/images/realisations/chantier-3/02.jpg',
+    ],
+  },
+  {
+    id: 'chantier-4',
+    title: "Isolation sarking — Saint-Jean-de-la-Ruelle",
+    type: "Isolation",
+    material: "Sarking",
+    photos: [
+      '/images/realisations/chantier-4/01.jpg',
+      '/images/realisations/chantier-4/02.jpg',
+      '/images/realisations/chantier-4/03.jpg',
+    ],
+  },
+  {
+    id: 'chantier-5',
+    title: "Pose de Velux — Saran",
+    type: "Velux / Fenêtre de toit",
+    material: "Velux triple vitrage",
+    photos: [
+      '/images/realisations/chantier-5/01.jpg',
+      '/images/realisations/chantier-5/02.jpg',
+    ],
+  },
+  {
+    id: 'chantier-6',
+    title: "Nettoyage et traitement — Orléans Sud",
+    type: "Nettoyage & traitement",
+    material: "Tuiles béton",
+    photos: [
+      '/images/realisations/chantier-6/01.jpg',
+      '/images/realisations/chantier-6/02.jpg',
+      '/images/realisations/chantier-6/03.jpg',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Nos Réalisations — Couvreur Orléans | MG Couverture"
+  description="Découvrez les chantiers réalisés par MG Couverture à Orléans et agglomération : rénovations, toitures neuves, zinguerie, Velux. Photos de nos travaux de couverture dans le Loiret."
+>
+  <Header />
+  <main>
+    <!-- En-tête de page -->
+    <div class="page-header">
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm text-gray-400 mb-4" aria-label="Fil d'Ariane">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+            <li aria-hidden="true">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </li>
+            <li class="text-white font-medium" aria-current="page">Réalisations</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl font-bold text-white mb-4">Nos réalisations</h1>
+        <p class="text-gray-300 text-lg max-w-2xl">
+          Découvrez quelques-uns des chantiers réalisés par Mickaël Grenêche à Orléans et dans l'agglomération orléanaise. Cliquez sur les photos pour les agrandir.
+        </p>
+      </div>
+    </div>
+
+    <!-- Grille réalisations -->
+    <section class="py-16 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {realisations.map(r => (
+            <RealisationCard
+              id={r.id}
+              title={r.title}
+              type={r.type}
+              material={r.material}
+              photos={r.photos.map(p => asset(p))}
+            />
+          ))}
+        </div>
+
+        <!-- Note Facebook -->
+        <div class="mt-12 bg-[#fdf9f9] border border-red-100 rounded-xl p-6 text-center">
+          <p class="text-[#5a5a5a] mb-4">
+            Vous souhaitez voir plus de réalisations ? Retrouvez tous nos chantiers en temps réel sur notre page Facebook.
+          </p>
+          <a
+            href="https://www.facebook.com/p/MG-Couverture-100076450502585/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#1877f2] hover:bg-[#166fe5] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Voir nos photos sur Facebook
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Un projet similaire ? Contactez-nous !"
+      subtitle="Devis gratuit sous 24h — Intervention sur Orléans et agglomération."
+    />
+  </main>
+
+  <!-- Lightbox globale (une seule instance pour toute la page) -->
+  <Lightbox />
+
+  <Footer />
+</BaseLayout>

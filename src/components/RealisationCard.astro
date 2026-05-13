@@ -1,0 +1,115 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  type: string;
+  material: string;
+  photos: string[];
+}
+
+const { id, title, type, material, photos } = Astro.props;
+const photosJson = JSON.stringify(photos);
+---
+
+<article
+  class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+  data-realisation
+>
+  <!-- Mini carrousel -->
+  <div class="relative aspect-video overflow-hidden bg-gray-100 group">
+    <!-- Track -->
+    <div
+      class="flex h-full transition-transform duration-300 ease-in-out"
+      data-mini-track
+    >
+      {photos.map((src, i) => (
+        <button
+          class="min-w-full h-full focus:outline-none cursor-zoom-in"
+          data-lightbox-open
+          data-photos={photosJson}
+          data-index={i}
+          aria-label={`Voir ${title} en grand — photo ${i + 1}`}
+          type="button"
+        >
+          <img
+            src={src}
+            alt={`${title} — photo ${i + 1}`}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+
+    <!-- Flèches (visibles au survol si > 1 photo) -->
+    {photos.length > 1 && (
+      <>
+        <button
+          data-mini-prev
+          class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/75 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 focus:outline-none z-10"
+          aria-label="Photo précédente"
+          type="button"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          data-mini-next
+          class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/75 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 focus:outline-none z-10"
+          aria-label="Photo suivante"
+          type="button"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Compteur -->
+        <span
+          data-mini-counter
+          class="absolute bottom-2 right-2 bg-black/50 text-white text-xs font-medium px-2 py-0.5 rounded-full"
+          aria-live="polite"
+        >
+          1 / {photos.length}
+        </span>
+      </>
+    )}
+  </div>
+
+  <!-- Infos -->
+  <div class="p-4">
+    <h3 class="font-semibold text-[#3D3D3D] text-sm mb-2">{title}</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="inline-block bg-red-50 text-[#C8102E] text-xs font-medium px-2.5 py-1 rounded-full">
+        {type}
+      </span>
+      <span class="inline-block bg-gray-100 text-[#5a5a5a] text-xs font-medium px-2.5 py-1 rounded-full">
+        {material}
+      </span>
+    </div>
+  </div>
+</article>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-realisation]').forEach(card => {
+    const track = card.querySelector<HTMLElement>('[data-mini-track]');
+    const prevBtn = card.querySelector<HTMLButtonElement>('[data-mini-prev]');
+    const nextBtn = card.querySelector<HTMLButtonElement>('[data-mini-next]');
+    const counter = card.querySelector<HTMLElement>('[data-mini-counter]');
+    if (!track) return;
+
+    const slides = track.querySelectorAll<HTMLElement>(':scope > button');
+    const total = slides.length;
+    let current = 0;
+
+    function goTo(i: number) {
+      current = (i + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    prevBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
+    nextBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
+  });
+</script>

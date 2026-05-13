@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { asset } from '../utils/asset';
+
+const services = [
+  {
+    id: 'pose-toiture-neuve',
+    title: 'Pose de toiture neuve',
+    description: "Vous construisez une maison ou une extension ? La pose d'une toiture neuve est une étape clé qui conditionne la durabilité et l'esthétique de votre bien. Mickaël Grenêche réalise l'installation complète de votre couverture, de la charpente à la finition, en respectant les normes en vigueur. Chaque chantier fait l'objet d'une étude préalable pour choisir les matériaux les mieux adaptés à votre architecture et à votre budget.",
+    materials: ['Tuiles en terre cuite', 'Tuiles béton', 'Ardoise naturelle ou synthétique', 'Bac acier / métal'],
+    image: 'Pose+toiture+neuve',
+    imageSrc: '/images/services/pose-toiture-neuve.jpg',
+    imageAlt: 'Pose de toiture neuve par MG Couverture à Orléans',
+  },
+  {
+    id: 'renovation-toiture',
+    title: 'Rénovation de toiture',
+    description: "Votre toiture vieillit, des tuiles se déplacent, des infiltrations apparaissent ? Une rénovation s'impose. MG Couverture réalise des remises en état complètes ou partielles : dépose de l'ancienne couverture, vérification de la charpente, reprise de l'étanchéité, remplacement des éléments défectueux, et pose de nouveaux matériaux. On s'occupe de tout pour vous rendre une toiture comme neuve.",
+    materials: ['Tuiles en terre cuite', 'Ardoise', 'Zinc', 'Bac acier'],
+    image: 'Renovation+toiture',
+    imageSrc: '/images/services/renovation-toiture.jpg',
+    imageAlt: 'Rénovation de toiture à Orléans par MG Couverture',
+  },
+  {
+    id: 'zinguerie',
+    title: 'Zinguerie (gouttières, faîtières, chéneaux)',
+    description: "La zinguerie assure l'évacuation des eaux pluviales et protège votre maison des infiltrations. Mickaël intervient sur la pose et le remplacement de gouttières, chéneaux, faîtières, arêtiers et solins. Un travail de précision qui demande savoir-faire et expérience pour garantir une étanchéité parfaite, y compris dans les zones à risque comme les jonctions murs/toitures.",
+    materials: ['Zinc', 'Cuivre', 'Aluminium laqué', 'PVC'],
+    image: 'Zinguerie+gouttières',
+    imageSrc: '/images/services/zinguerie.jpg',
+    imageAlt: 'Travaux de zinguerie et gouttières par MG Couverture',
+  },
+  {
+    id: 'isolation',
+    title: 'Isolation de toiture',
+    description: "La toiture est responsable de 25 à 30% des déperditions thermiques d'un logement. Une bonne isolation permet de réduire significativement vos factures d'énergie tout en améliorant le confort de votre maison. MG Couverture réalise l'isolation par l'extérieur (sarking) ou par l'intérieur selon la configuration de votre toit, en utilisant des matériaux performants et conformes aux normes RT2020.",
+    materials: ['Laine de roche', 'Polyuréthane', 'Ouate de cellulose', 'Sarking'],
+    image: 'Isolation+toiture',
+    imageSrc: '/images/services/isolation.jpg',
+    imageAlt: "Isolation de toiture par l'extérieur à Orléans",
+  },
+  {
+    id: 'velux',
+    title: 'Pose de Velux / fenêtres de toit',
+    description: "L'installation d'une fenêtre de toit apporte lumière et ventilation naturelle à vos combles ou mansardes. Mickaël pose tous types de fenêtres de toit — Velux, Fakro, Roto — en assurant une intégration parfaite dans votre couverture. L'étanchéité autour du cadre est réalisée avec soin pour éviter toute infiltration. Une solution idéale pour valoriser et luminosifier vos espaces sous les toits.",
+    materials: ['Velux', 'Fenêtres fixes', 'Fenêtres à projection', 'Tunnels solaires'],
+    image: 'Pose+Velux',
+    imageSrc: '/images/services/velux.jpg',
+    imageAlt: 'Pose de fenêtre de toit Velux par MG Couverture',
+  },
+  {
+    id: 'nettoyage-traitement',
+    title: 'Nettoyage et traitement de toiture',
+    description: "Mousses, lichens et algues dégradent progressivement vos tuiles et réduisent leur durée de vie. Un nettoyage et traitement régulier permet de préserver l'esthétique de votre maison et de prolonger la durée de vie de votre couverture. MG Couverture intervient au nettoyeur haute pression ou par traitement chimique, suivi d'une application d'hydrofuge pour protéger vos tuiles dans la durée.",
+    materials: ['Hydrofuge', 'Anti-mousse', 'Peinture toiture'],
+    image: 'Nettoyage+toiture',
+    imageSrc: '/images/services/nettoyage-traitement.jpg',
+    imageAlt: 'Nettoyage et traitement anti-mousse toiture Orléans',
+  },
+  {
+    id: 'depannage',
+    title: 'Dépannage et intervention d\'urgence',
+    description: "Après une tempête, des vents violents ou simplement avec le temps, une tuile peut se déplacer, une gouttière se fissurer ou une fuite apparaître. MG Couverture intervient rapidement pour diagnostiquer le problème et réaliser les réparations nécessaires. Pas de devis interminable ni de délais à rallonge — on identifie, on répare, on sécurise.",
+    materials: ['Tous matériaux compatibles'],
+    image: 'Dépannage+urgence+toiture',
+    imageSrc: '/images/services/depannage.jpg',
+    imageAlt: "Dépannage d'urgence toiture Orléans et agglomération",
+  },
+];
+---
+
+<BaseLayout
+  title="Nos Services — Couvreur Orléans | MG Couverture"
+  description="Découvrez tous les services de MG Couverture : pose de toiture neuve, rénovation, zinguerie, isolation, Velux, nettoyage et dépannage d'urgence à Orléans (45)."
+>
+  <Header />
+  <main>
+    <!-- En-tête de page -->
+    <div class="page-header">
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm text-gray-400 mb-4" aria-label="Fil d'Ariane">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+            <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+            <li class="text-white font-medium" aria-current="page">Nos services</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl font-bold text-white mb-4">Nos services de couverture</h1>
+        <p class="text-gray-300 text-lg max-w-2xl">
+          Artisan couvreur basé à Gidy, Mickaël Grenêche intervient sur tous types de travaux de couverture dans l'agglomération orléanaise — du dépannage urgent à la rénovation complète.
+        </p>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <section class="py-16 px-4 bg-white">
+      <div class="max-w-5xl mx-auto space-y-20">
+        {services.map((service, idx) => (
+          <article id={service.id} class={`grid md:grid-cols-2 gap-10 items-center ${idx % 2 !== 0 ? 'md:[&>*:first-child]:order-2' : ''}`}>
+            <div>
+              <img
+                src={service.imageSrc ? asset(service.imageSrc) : `https://placehold.co/600x400/4a5568/ffffff?text=${encodeURIComponent(service.image)}`}
+                alt={service.imageAlt}
+                class="rounded-xl w-full object-cover shadow-md"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-[#3D3D3D] mb-4">{service.title}</h2>
+              <p class="text-[#5a5a5a] leading-relaxed mb-6">{service.description}</p>
+
+              {service.materials.length > 0 && (
+                <div class="mb-6">
+                  <p class="text-sm font-semibold text-[#3D3D3D] mb-2">Matériaux utilisés :</p>
+                  <div class="flex flex-wrap gap-2">
+                    {service.materials.map(m => (
+                      <span class="bg-red-50 text-[#C8102E] text-xs font-medium px-3 py-1 rounded-full border border-red-100">
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <a href="/contact" class="btn-primary">
+                Demander un devis
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Encart matériaux -->
+    <section class="py-16 px-4 bg-[#fdf9f9]" aria-labelledby="materials-title">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 id="materials-title" class="section-title">Matériaux maîtrisés</h2>
+        <p class="section-subtitle max-w-xl mx-auto">
+          MG Couverture travaille avec les meilleurs matériaux pour garantir durabilité et esthétique de votre toiture.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+          {[
+            { name: 'Tuiles', desc: 'Terre cuite et béton', icon: '🏠' },
+            { name: 'Ardoise', desc: 'Naturelle et synthétique', icon: '⬛' },
+            { name: 'Zinc', desc: 'Zinguerie et couverture', icon: '🔩' },
+            { name: 'Bac acier', desc: 'Métal et acier laqué', icon: '📐' },
+          ].map(m => (
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center">
+              <div class="text-3xl mb-3" aria-hidden="true">{m.icon}</div>
+              <h3 class="font-semibold text-[#3D3D3D] mb-1">{m.name}</h3>
+              <p class="text-xs text-[#5a5a5a]">{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+  <Footer />
+</BaseLayout>
