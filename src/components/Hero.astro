@@ -1,5 +1,5 @@
 ---
-import { asset } from '../utils/asset';
+import { asset, link } from '../utils/asset';
 ---
 
 <section class="relative min-h-[85vh] flex items-center overflow-hidden" aria-label="Section principale">
@@ -31,10 +31,10 @@ import { asset } from '../utils/asset';
         Couvreur artisan à <strong class="text-white">Orléans et agglomération</strong> — pose, rénovation, zinguerie et dépannage d'urgence. Devis gratuit sous 24h.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/contact" class="btn-primary text-center text-lg px-8 py-4">
+        <a href={link('/contact')} class="btn-primary text-center text-lg px-8 py-4">
           Demander un devis gratuit
         </a>
-        <a href="/realisations" class="btn-secondary text-center text-lg px-8 py-4">
+        <a href={link('/realisations')} class="btn-secondary text-center text-lg px-8 py-4">
           Nos réalisations
         </a>
       </div>

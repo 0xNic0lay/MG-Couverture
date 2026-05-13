@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import { link } from '../utils/asset';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -33,11 +34,11 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="font-semibold text-white mb-4">Navigation</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-          <li><a href="/services" class="hover:text-white transition-colors">Nos services</a></li>
-          <li><a href="/realisations" class="hover:text-white transition-colors">Réalisations</a></li>
-          <li><a href="/a-propos" class="hover:text-white transition-colors">À propos</a></li>
-          <li><a href="/contact" class="hover:text-white transition-colors">Contact & Devis</a></li>
+          <li><a href={link('/')} class="hover:text-white transition-colors">Accueil</a></li>
+          <li><a href={link('/services')} class="hover:text-white transition-colors">Nos services</a></li>
+          <li><a href={link('/realisations')} class="hover:text-white transition-colors">Réalisations</a></li>
+          <li><a href={link('/a-propos')} class="hover:text-white transition-colors">À propos</a></li>
+          <li><a href={link('/contact')} class="hover:text-white transition-colors">Contact & Devis</a></li>
         </ul>
       </div>
 
@@ -71,8 +72,8 @@ const currentYear = new Date().getFullYear();
     <div class="border-t border-gray-600 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400">
       <p>© {currentYear} MG Couverture — Mickaël Grenêche. Tous droits réservés.</p>
       <div class="flex gap-4">
-        <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-        <a href="/politique-confidentialite" class="hover:text-white transition-colors">Politique de confidentialité</a>
+        <a href={link('/mentions-legales')} class="hover:text-white transition-colors">Mentions légales</a>
+        <a href={link('/politique-confidentialite')} class="hover:text-white transition-colors">Politique de confidentialité</a>
       </div>
     </div>
   </div>

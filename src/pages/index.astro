@@ -6,7 +6,7 @@ import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import ReviewsCarousel from '../components/ReviewsCarousel.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { asset } from '../utils/asset';
+import { asset, link } from '../utils/asset';
 
 const services = [
   {
@@ -83,7 +83,7 @@ const trustItems = [
           ))}
         </div>
         <div class="text-center mt-10">
-          <a href="/services" class="btn-outline">
+          <a href={link('/services')} class="btn-outline">
             Voir tous nos services
           </a>
         </div>
@@ -125,7 +125,7 @@ const trustItems = [
                 </li>
               ))}
             </ul>
-            <a href="/a-propos" class="btn-outline">
+            <a href={link('/a-propos')} class="btn-outline">
               En savoir plus
             </a>
           </div>

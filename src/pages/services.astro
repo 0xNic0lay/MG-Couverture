@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { asset } from '../utils/asset';
+import { asset, link } from '../utils/asset';
 
 const services = [
   {
@@ -83,7 +83,7 @@ const services = [
       <div class="max-w-4xl mx-auto">
         <nav class="text-sm text-gray-400 mb-4" aria-label="Fil d'Ariane">
           <ol class="flex items-center gap-2">
-            <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href={link('/')} class="hover:text-white transition-colors">Accueil</a></li>
             <li aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
             <li class="text-white font-medium" aria-current="page">Nos services</li>
           </ol>
@@ -127,7 +127,7 @@ const services = [
                 </div>
               )}
 
-              <a href="/contact" class="btn-primary">
+              <a href={link('/contact')} class="btn-primary">
                 Demander un devis
               </a>
             </div>

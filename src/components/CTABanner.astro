@@ -1,4 +1,6 @@
 ---
+import { link } from '../utils/asset';
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -10,7 +12,7 @@ const {
   title = 'Votre projet toiture ? Parlons-en !',
   subtitle = 'Devis gratuit et sans engagement. Réponse sous 24h.',
   btnLabel = 'Nous contacter',
-  btnHref = '/contact',
+  btnHref = link('/contact'),
 } = Astro.props;
 ---
 
