@@ -7,6 +7,7 @@ interface Props {
 const { size = 'md', variant = 'default' } = Astro.props;
 
 const heights = { sm: '32px', md: '42px', lg: '56px' };
+const widths = { sm: 100, md: 131, lg: 174 };
 const textSizes = { sm: '1rem', md: '1.2rem', lg: '1.5rem' };
 const textColor = variant === 'white' ? '#ffffff' : '#3D3D3D';
 ---
@@ -15,6 +16,8 @@ const textColor = variant === 'white' ? '#ffffff' : '#3D3D3D';
   <img
     src={asset('/images/logo.png')}
     alt="Logo MG Couverture — trois maisons avec toits rouges"
+    width={widths[size]}
+    height={size === 'sm' ? 32 : size === 'md' ? 42 : 56}
     style={`height: ${heights[size]}; width: auto;`}
     loading="eager"
     class={variant === 'white' ? 'brightness-0 invert' : ''}
