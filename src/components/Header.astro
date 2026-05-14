@@ -10,7 +10,7 @@ const navLinks = [
   { href: link('/contact'), label: 'Contact' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname;
           <a
             href={link.href}
             class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === link.href
+              currentPath === link.href.replace(/\/$/, '')
                 ? 'text-[#C8102E] font-semibold'
                 : 'text-[#5a5a5a] hover:text-[#C8102E]'
             }`}
@@ -60,7 +60,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={link.href}
           class={`block px-3 py-2.5 rounded-md text-base font-medium transition-colors ${
-            currentPath === link.href
+            currentPath === link.href.replace(/\/$/, '')
               ? 'text-[#C8102E] font-semibold bg-red-50'
               : 'text-[#5a5a5a] hover:text-[#C8102E] hover:bg-red-50'
           }`}
